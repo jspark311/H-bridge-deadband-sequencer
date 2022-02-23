@@ -1,0 +1,890 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 11024 5906
+encoding utf-8
+Sheet 1 1
+Title "H-bridge dead-band sequencer"
+Date "2022-02-06"
+Rev "1"
+Comp "Manuvr"
+Comment1 "Author: J. Ian Lindsay"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:C C2
+U 1 1 61FB20E2
+P 1100 1850
+F 0 "C2" V 1250 1950 50  0000 C CNN
+F 1 "1uF" V 1150 2000 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1138 1700 50  0001 C CNN
+F 3 "~" H 1100 1850 50  0001 C CNN
+F 4 "1276-1184-1-ND" H 2000 2800 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H 2000 2800 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H 2000 2800 50  0001 C CNN "Manu_Name"
+	1    1100 1850
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 61FB25C1
+P 2350 950
+F 0 "R1" V 2250 950 50  0000 C CNN
+F 1 "5k6" V 2350 950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2280 950 50  0001 C CNN
+F 3 "~" H 2350 950 50  0001 C CNN
+F 4 "RMCF0603JT5K60CT-ND" H 2000 2800 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603JT5K60" H 2000 2800 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H 2000 2800 50  0001 C CNN "Manu_Name"
+	1    2350 950 
+	0    1    1    0   
+$EndComp
+$Comp
+L Timers:NE555D U1
+U 1 1 61FB3597
+P 1950 1400
+F 0 "U1" H 1950 1450 50  0000 C CNN
+F 1 "NE555D" H 1950 1350 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2800 1000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 2800 1000 50  0001 C CNN
+F 4 "296-1336-1-ND" H 2000 2800 50  0001 C CNN "Digikey_Number"
+F 5 "TLC555CDR" H 2000 2800 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 2000 2800 50  0001 C CNN "Manu_Name"
+	1    1950 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 61FCC000
+P 2650 1600
+F 0 "R2" H 2580 1554 50  0000 R CNN
+F 1 "15k" V 2650 1650 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2580 1600 50  0001 C CNN
+F 3 "~" H 2650 1600 50  0001 C CNN
+F 4 "RMCF0603JT15K0CT-ND" H 2000 2800 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603JT15K0" H 2000 2800 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H 2000 2800 50  0001 C CNN "Manu_Name"
+	1    2650 1600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 1000 1950 950 
+Wire Wire Line
+	1950 950  2200 950 
+Wire Wire Line
+	1950 950  1400 950 
+Wire Wire Line
+	1400 950  1400 1600
+Wire Wire Line
+	1400 1600 1450 1600
+Connection ~ 1950 950 
+Wire Wire Line
+	1450 1200 1350 1200
+Wire Wire Line
+	1350 1200 1350 1850
+Wire Wire Line
+	1350 1850 2500 1850
+Wire Wire Line
+	2500 1600 2450 1600
+Connection ~ 2500 1850
+Wire Wire Line
+	2500 1850 2500 1600
+Wire Wire Line
+	2500 950  2650 950 
+Wire Wire Line
+	2650 950  2650 1400
+Wire Wire Line
+	2450 1400 2650 1400
+Wire Wire Line
+	2450 1200 2500 1200
+$Comp
+L Device:C C1
+U 1 1 62029329
+P 1100 1400
+F 0 "C1" V 1250 1500 50  0000 C CNN
+F 1 "10nF" V 1150 1550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1138 1250 50  0001 C CNN
+F 3 "~" H 1100 1400 50  0001 C CNN
+F 4 "1276-1009-1-ND" V 1100 1400 50  0001 C CNN "Digikey_Number"
+F 5 "" V 1100 1400 50  0001 C CNN "Manufacturer"
+	1    1100 1400
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	1950 1800 1950 2000
+Wire Wire Line
+	2650 1450 2650 1400
+Connection ~ 2650 1400
+Wire Wire Line
+	2650 1750 2650 1850
+Wire Wire Line
+	2650 1850 2500 1850
+Wire Wire Line
+	950  1400 900  1400
+Wire Wire Line
+	900  1400 900  1850
+Wire Wire Line
+	900  2000 1950 2000
+Wire Wire Line
+	950  1850 900  1850
+Connection ~ 900  1850
+Wire Wire Line
+	900  1850 900  2000
+Wire Wire Line
+	1350 1850 1250 1850
+Connection ~ 1350 1850
+Wire Wire Line
+	1250 1400 1450 1400
+$Comp
+L 4xxx:4015 U2
+U 1 1 62059CC6
+P 4550 1150
+F 0 "U2" H 4550 1200 50  0000 C CNN
+F 1 "4015" H 4550 1100 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 4550 1150 50  0001 C CNN
+F 3 "" H 4550 1150 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 4550 1150 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 4550 1150 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 4550 1150 50  0001 C CNN "Manu_Name"
+	1    4550 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4015 U2
+U 2 1 6205A1FB
+P 4550 1750
+F 0 "U2" H 4550 1800 50  0000 C CNN
+F 1 "4015" H 4550 1700 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 4550 1750 50  0001 C CNN
+F 3 "" H 4550 1750 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 4550 1150 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 4550 1150 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 4550 1150 50  0001 C CNN "Manu_Name"
+	2    4550 1750
+	1    0    0    -1  
+$EndComp
+Text Label 2500 1200 0    50   ~ 0
+CLK
+Text Label 3800 1000 2    50   ~ 0
+CLK
+Wire Wire Line
+	3800 1000 3900 1000
+NoConn ~ 5100 1000
+NoConn ~ 5100 1100
+NoConn ~ 5100 1200
+NoConn ~ 5100 1600
+NoConn ~ 5100 1700
+NoConn ~ 5100 1800
+Wire Wire Line
+	1600 4650 1600 4700
+Wire Wire Line
+	1600 4700 2050 4700
+Wire Wire Line
+	2050 4700 2050 4400
+$Comp
+L Device:R R5
+U 1 1 62078D43
+P 1400 3750
+F 0 "R5" V 1300 3750 50  0000 C CNN
+F 1 "4k7" V 1400 3750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1330 3750 50  0001 C CNN
+F 3 "~" H 1400 3750 50  0001 C CNN
+F 4 "RMCF0603FT4K70CT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603FT4K70" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H -450 400 50  0001 C CNN "Manu_Name"
+	1    1400 3750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 62079C62
+P 1400 3950
+F 0 "R6" V 1300 3950 50  0000 C CNN
+F 1 "4k7" V 1400 3950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1330 3950 50  0001 C CNN
+F 3 "~" H 1400 3950 50  0001 C CNN
+F 4 "RMCF0603FT4K70CT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603FT4K70" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H -450 400 50  0001 C CNN "Manu_Name"
+	1    1400 3950
+	0    -1   -1   0   
+$EndComp
+Text Label 1750 4700 0    50   ~ 0
+GND
+Text Label 1650 2000 0    50   ~ 0
+GND
+Wire Wire Line
+	5100 1900 5150 1900
+Wire Wire Line
+	5100 1300 5150 1300
+Text Label 5150 1300 0    50   ~ 0
+A_OUT_H1
+Text Label 5150 1900 0    50   ~ 0
+A_OUT_L1
+$Comp
+L 4xxx:4015 U3
+U 1 1 62093899
+P 4550 2350
+F 0 "U3" H 4550 2400 50  0000 C CNN
+F 1 "4015" H 4550 2300 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 4550 2350 50  0001 C CNN
+F 3 "" H 4550 2350 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 4550 1150 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 4550 1150 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 4550 1150 50  0001 C CNN "Manu_Name"
+	1    4550 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4015 U3
+U 2 1 620938A3
+P 4550 2950
+F 0 "U3" H 4550 3000 50  0000 C CNN
+F 1 "4015" H 4550 2900 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 4550 2950 50  0001 C CNN
+F 3 "" H 4550 2950 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 4550 1150 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 4550 1150 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 4550 1150 50  0001 C CNN "Manu_Name"
+	2    4550 2950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5100 2200
+NoConn ~ 5100 2300
+NoConn ~ 5100 2400
+NoConn ~ 5100 2800
+NoConn ~ 5100 2900
+NoConn ~ 5100 3000
+Wire Wire Line
+	5100 3100 5150 3100
+Wire Wire Line
+	5100 2500 5150 2500
+Text Label 5150 2500 0    50   ~ 0
+A_OUT_H2
+Text Label 5150 3100 0    50   ~ 0
+A_OUT_L2
+Wire Wire Line
+	1200 4450 1150 4450
+Text Label 2250 3950 0    50   ~ 0
+~B_IN_2
+Text Label 2250 3750 0    50   ~ 0
+~B_IN_1
+Wire Wire Line
+	1250 3750 1200 3750
+Wire Wire Line
+	1200 3750 1200 3950
+Wire Wire Line
+	1200 3950 1250 3950
+Wire Wire Line
+	1550 3750 1600 3750
+Connection ~ 1600 3750
+Wire Wire Line
+	1600 3750 2250 3750
+Text Label 1550 950  0    50   ~ 0
+12V
+Text Label 1200 3900 1    50   ~ 0
+12V
+Text Label 4550 3200 0    50   ~ 0
+GND
+Text Label 4550 1400 0    50   ~ 0
+GND
+Text Label 4550 2000 0    50   ~ 0
+GND
+Text Label 4550 2600 0    50   ~ 0
+GND
+Text Label 4550 1500 2    50   ~ 0
+12V
+Text Label 4550 900  2    50   ~ 0
+12V
+Text Label 4550 2700 2    50   ~ 0
+12V
+Text Label 4550 2100 2    50   ~ 0
+12V
+Text Label 8800 1200 2    50   ~ 0
+B_IN_1
+Text Label 8800 1300 2    50   ~ 0
+B_IN_2
+Wire Wire Line
+	8800 1200 8850 1200
+Wire Wire Line
+	8800 1300 8850 1300
+Text Label 8800 1500 2    50   ~ 0
+GND
+Text Label 8800 1400 2    50   ~ 0
+12V
+Wire Wire Line
+	8800 1400 8850 1400
+Wire Wire Line
+	8800 1500 8850 1500
+$Comp
+L Device:C C3
+U 1 1 6230C8DB
+P 8900 2600
+F 0 "C3" H 9000 2700 50  0000 C CNN
+F 1 "1uF" H 9000 2500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8938 2450 50  0001 C CNN
+F 3 "~" H 8900 2600 50  0001 C CNN
+F 4 "1276-1184-1-ND" H 7050 2350 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H 7050 2350 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H 7050 2350 50  0001 C CNN "Manu_Name"
+	1    8900 2600
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 62312B64
+P 9150 2600
+F 0 "C4" H 9250 2700 50  0000 C CNN
+F 1 "1uF" H 9250 2500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9188 2450 50  0001 C CNN
+F 3 "~" H 9150 2600 50  0001 C CNN
+F 4 "1276-1184-1-ND" H 7050 2350 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H 7050 2350 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H 7050 2350 50  0001 C CNN "Manu_Name"
+	1    9150 2600
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9400 2450 9400 2400
+Wire Wire Line
+	9400 2400 9150 2400
+Wire Wire Line
+	9400 2800 9400 2750
+Wire Wire Line
+	9150 2750 9150 2800
+Wire Wire Line
+	9150 2800 9400 2800
+Wire Wire Line
+	9150 2400 9150 2450
+Text Label 8900 2800 2    50   ~ 0
+GND
+Text Label 8950 2400 0    50   ~ 0
+12V
+Wire Wire Line
+	1550 3950 2050 3950
+Wire Wire Line
+	2050 4000 2050 3950
+Connection ~ 2050 3950
+Wire Wire Line
+	2050 3950 2250 3950
+Wire Wire Line
+	1600 3750 1600 4250
+Wire Wire Line
+	1150 4200 1650 4200
+Wire Wire Line
+	3900 2800 3900 2200
+Wire Wire Line
+	3900 2800 4000 2800
+Connection ~ 3900 1000
+Wire Wire Line
+	3900 1000 4000 1000
+Wire Wire Line
+	3900 1600 4000 1600
+Connection ~ 3900 1600
+Wire Wire Line
+	3900 1600 3900 1000
+Wire Wire Line
+	3900 2200 4000 2200
+Connection ~ 3900 2200
+Wire Wire Line
+	3900 2200 3900 1600
+Wire Wire Line
+	3550 1300 3800 1300
+Wire Wire Line
+	3550 1150 3750 1150
+Wire Wire Line
+	3800 1750 3800 1300
+Wire Wire Line
+	3800 1750 4000 1750
+Connection ~ 3800 1300
+Wire Wire Line
+	3800 1300 4000 1300
+Wire Wire Line
+	3750 1900 3750 1150
+Wire Wire Line
+	3750 1900 4000 1900
+Connection ~ 3750 1150
+Wire Wire Line
+	3750 1150 4000 1150
+Wire Wire Line
+	3550 2350 3750 2350
+Wire Wire Line
+	3550 2500 3800 2500
+Wire Wire Line
+	3800 2950 3800 2500
+Wire Wire Line
+	3800 2950 4000 2950
+Connection ~ 3800 2500
+Wire Wire Line
+	3800 2500 4000 2500
+Wire Wire Line
+	3750 3100 3750 2350
+Wire Wire Line
+	3750 3100 4000 3100
+Connection ~ 3750 2350
+Wire Wire Line
+	3750 2350 4000 2350
+$Comp
+L Device:C C5
+U 1 1 62312E1D
+P 9400 2600
+F 0 "C5" H 9500 2700 50  0000 C CNN
+F 1 "1uF" H 9500 2500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9438 2450 50  0001 C CNN
+F 3 "~" H 9400 2600 50  0001 C CNN
+F 4 "1276-1184-1-ND" H 7050 2350 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H 7050 2350 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H 7050 2350 50  0001 C CNN "Manu_Name"
+	1    9400 2600
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9150 2400 8900 2400
+Wire Wire Line
+	8900 2400 8900 2450
+Connection ~ 9150 2400
+Wire Wire Line
+	8900 2750 8900 2800
+Wire Wire Line
+	8900 2800 9150 2800
+Connection ~ 9150 2800
+Wire Wire Line
+	1600 3500 1600 3550
+Wire Wire Line
+	1600 3550 2050 3550
+Wire Wire Line
+	2050 3550 2050 3250
+$Comp
+L Device:R R3
+U 1 1 620546FD
+P 1400 2600
+F 0 "R3" V 1300 2600 50  0000 C CNN
+F 1 "4k7" V 1400 2600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1330 2600 50  0001 C CNN
+F 3 "~" H 1400 2600 50  0001 C CNN
+F 4 "RMCF0603FT4K70CT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603FT4K70" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H -450 400 50  0001 C CNN "Manu_Name"
+	1    1400 2600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 62054707
+P 1400 2800
+F 0 "R4" V 1300 2800 50  0000 C CNN
+F 1 "4k7" V 1400 2800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1330 2800 50  0001 C CNN
+F 3 "~" H 1400 2800 50  0001 C CNN
+F 4 "RMCF0603FT4K70CT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "RMCF0603FT4K70" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "Stackpole Electronics Inc." H -450 400 50  0001 C CNN "Manu_Name"
+	1    1400 2800
+	0    -1   -1   0   
+$EndComp
+Text Label 1750 3550 0    50   ~ 0
+GND
+Wire Wire Line
+	1200 3300 1150 3300
+Text Label 2250 2800 0    50   ~ 0
+~A_IN_2
+Text Label 2250 2600 0    50   ~ 0
+~A_IN_1
+Wire Wire Line
+	1250 2600 1200 2600
+Wire Wire Line
+	1200 2600 1200 2800
+Wire Wire Line
+	1200 2800 1250 2800
+Wire Wire Line
+	1550 2600 1600 2600
+Connection ~ 1600 2600
+Wire Wire Line
+	1600 2600 2250 2600
+Text Label 1200 2750 1    50   ~ 0
+12V
+$Comp
+L Device:Q_DUAL_NPN_NPN_BRT_E1B1C2E2B2C1 Q1
+U 1 1 6205471E
+P 1550 3300
+F 0 "Q1" H 1691 3346 50  0000 L CNN
+F 1 "MUN5232DW1T1GOSCT" H 1691 3255 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 1550 3300 50  0001 C CNN
+F 3 "~" H 1550 3300 50  0001 C CNN
+F 4 "MUN5232DW1T1GOSCT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "MUN5232DW1T1G" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "onsemi" H -450 400 50  0001 C CNN "Manu_Name"
+	1    1550 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 2800 2050 2800
+Wire Wire Line
+	2050 2850 2050 2800
+Connection ~ 2050 2800
+Wire Wire Line
+	2050 2800 2250 2800
+Wire Wire Line
+	1600 2600 1600 3100
+Wire Wire Line
+	1150 3050 1650 3050
+$Comp
+L Connector_Generic:Conn_01x06 J1
+U 1 1 6205D388
+P 9050 1200
+F 0 "J1" H 9130 1192 50  0000 L CNN
+F 1 "Conn_01x06" H 9130 1101 50  0001 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 9050 1200 50  0001 C CNN
+F 3 "~" H 9050 1200 50  0001 C CNN
+	1    9050 1200
+	1    0    0    -1  
+$EndComp
+Text Label 8800 1000 2    50   ~ 0
+A_IN_1
+Text Label 8800 1100 2    50   ~ 0
+A_IN_2
+Wire Wire Line
+	8800 1000 8850 1000
+Wire Wire Line
+	8800 1100 8850 1100
+$Comp
+L Device:C C6
+U 1 1 6208A59E
+P 900 1150
+F 0 "C6" H 1000 1250 50  0000 C CNN
+F 1 "1uF" H 1000 1050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 938 1000 50  0001 C CNN
+F 3 "~" H 900 1150 50  0001 C CNN
+F 4 "1276-1184-1-ND" H -1700 900 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H -1700 900 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H -1700 900 50  0001 C CNN "Manu_Name"
+	1    900  1150
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C C7
+U 1 1 6208A7C7
+P 9650 2600
+F 0 "C7" H 9750 2700 50  0000 C CNN
+F 1 "1uF" H 9750 2500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9688 2450 50  0001 C CNN
+F 3 "~" H 9650 2600 50  0001 C CNN
+F 4 "1276-1184-1-ND" H 6800 2350 50  0001 C CNN "Digikey_Number"
+F 5 "CL10B105KA8NNNC" H 6800 2350 50  0001 C CNN "Manu_Number"
+F 6 "Samsung Electro-Mechanics" H 6800 2350 50  0001 C CNN "Manu_Name"
+	1    9650 2600
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9400 2800 9650 2800
+Connection ~ 9400 2800
+Wire Wire Line
+	9650 2750 9650 2800
+Wire Wire Line
+	9650 2450 9650 2400
+Wire Wire Line
+	9400 2400 9650 2400
+Connection ~ 9400 2400
+Text Label 1150 3300 2    50   ~ 0
+A_IN_1
+Text Label 1150 3050 2    50   ~ 0
+A_IN_2
+Text Label 1150 4450 2    50   ~ 0
+B_IN_1
+Text Label 1150 4200 2    50   ~ 0
+B_IN_2
+$Comp
+L 4xxx:4015 U4
+U 1 1 620AB8DE
+P 7050 1150
+F 0 "U4" H 7050 1200 50  0000 C CNN
+F 1 "4015" H 7050 1100 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7050 1150 50  0001 C CNN
+F 3 "" H 7050 1150 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 7050 -1400 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 7050 -1400 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 7050 -1400 50  0001 C CNN "Manu_Name"
+	1    7050 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4015 U4
+U 2 1 620AB8E8
+P 7050 1750
+F 0 "U4" H 7050 1800 50  0000 C CNN
+F 1 "4015" H 7050 1700 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7050 1750 50  0001 C CNN
+F 3 "" H 7050 1750 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 7050 -1400 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 7050 -1400 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 7050 -1400 50  0001 C CNN "Manu_Name"
+	2    7050 1750
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7600 1000
+NoConn ~ 7600 1100
+NoConn ~ 7600 1200
+NoConn ~ 7600 1600
+NoConn ~ 7600 1700
+NoConn ~ 7600 1800
+Wire Wire Line
+	7600 1900 7650 1900
+Wire Wire Line
+	7600 1300 7650 1300
+Text Label 7650 1300 0    50   ~ 0
+B_OUT_H1
+Text Label 7650 1900 0    50   ~ 0
+B_OUT_L1
+$Comp
+L 4xxx:4015 U5
+U 1 1 620AB8FE
+P 7050 2350
+F 0 "U5" H 7050 2400 50  0000 C CNN
+F 1 "4015" H 7050 2300 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7050 2350 50  0001 C CNN
+F 3 "" H 7050 2350 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 7050 -1400 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 7050 -1400 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 7050 -1400 50  0001 C CNN "Manu_Name"
+	1    7050 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L 4xxx:4015 U5
+U 2 1 620AB908
+P 7050 2950
+F 0 "U5" H 7050 3000 50  0000 C CNN
+F 1 "4015" H 7050 2900 50  0000 C CNN
+F 2 "Package_SO:TSSOP-16_4.4x5mm_P0.65mm" H 7050 2950 50  0001 C CNN
+F 3 "" H 7050 2950 50  0001 C CNN
+F 4 "296-CD4015BPW-ND" H 7050 -1400 50  0001 C CNN "Digikey_Number"
+F 5 "CD4015BPW" H 7050 -1400 50  0001 C CNN "Manu_Number"
+F 6 "Texas Instruments" H 7050 -1400 50  0001 C CNN "Manu_Name"
+	2    7050 2950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7600 2200
+NoConn ~ 7600 2300
+NoConn ~ 7600 2400
+NoConn ~ 7600 2800
+NoConn ~ 7600 2900
+NoConn ~ 7600 3000
+Wire Wire Line
+	7600 3100 7650 3100
+Wire Wire Line
+	7600 2500 7650 2500
+Text Label 7650 2500 0    50   ~ 0
+B_OUT_H2
+Text Label 7650 3100 0    50   ~ 0
+B_OUT_L2
+Text Label 7050 3200 0    50   ~ 0
+GND
+Text Label 7050 1400 0    50   ~ 0
+GND
+Text Label 7050 2000 0    50   ~ 0
+GND
+Text Label 7050 2600 0    50   ~ 0
+GND
+Text Label 7050 1500 2    50   ~ 0
+12V
+Text Label 7050 900  2    50   ~ 0
+12V
+Text Label 7050 2700 2    50   ~ 0
+12V
+Text Label 7050 2100 2    50   ~ 0
+12V
+Wire Wire Line
+	6400 2800 6400 2200
+Wire Wire Line
+	6400 2800 6500 2800
+Wire Wire Line
+	6400 1000 6500 1000
+Wire Wire Line
+	6400 1600 6500 1600
+Connection ~ 6400 1600
+Wire Wire Line
+	6400 1600 6400 1000
+Wire Wire Line
+	6400 2200 6500 2200
+Connection ~ 6400 2200
+Wire Wire Line
+	6400 2200 6400 1600
+Wire Wire Line
+	6050 1300 6300 1300
+Wire Wire Line
+	6050 1150 6250 1150
+Wire Wire Line
+	6300 1750 6300 1300
+Wire Wire Line
+	6300 1750 6500 1750
+Connection ~ 6300 1300
+Wire Wire Line
+	6300 1300 6500 1300
+Wire Wire Line
+	6250 1900 6250 1150
+Wire Wire Line
+	6250 1900 6500 1900
+Connection ~ 6250 1150
+Wire Wire Line
+	6250 1150 6500 1150
+Wire Wire Line
+	6050 2350 6250 2350
+Wire Wire Line
+	6050 2500 6300 2500
+Wire Wire Line
+	6300 2950 6300 2500
+Wire Wire Line
+	6300 2950 6500 2950
+Connection ~ 6300 2500
+Wire Wire Line
+	6300 2500 6500 2500
+Wire Wire Line
+	6250 3100 6250 2350
+Wire Wire Line
+	6250 3100 6500 3100
+Connection ~ 6250 2350
+Wire Wire Line
+	6250 2350 6500 2350
+Text Label 6050 2350 2    50   ~ 0
+B_IN_2
+Text Label 6050 2500 2    50   ~ 0
+~B_IN_2
+Text Label 6050 1300 2    50   ~ 0
+~B_IN_1
+Text Label 3550 2500 2    50   ~ 0
+~A_IN_2
+Text Label 3550 1300 2    50   ~ 0
+~A_IN_1
+Text Label 6050 1150 2    50   ~ 0
+B_IN_1
+Text Label 3550 2350 2    50   ~ 0
+A_IN_2
+Text Label 3550 1150 2    50   ~ 0
+A_IN_1
+Text Label 9750 1000 2    50   ~ 0
+A_OUT_H1
+Text Label 9750 1100 2    50   ~ 0
+A_OUT_L1
+Text Label 9750 1200 2    50   ~ 0
+A_OUT_H2
+Text Label 9750 1300 2    50   ~ 0
+A_OUT_L2
+Text Label 9750 1400 2    50   ~ 0
+B_OUT_H1
+Text Label 9750 1500 2    50   ~ 0
+B_OUT_L1
+Text Label 9750 1600 2    50   ~ 0
+B_OUT_H2
+Text Label 9750 1700 2    50   ~ 0
+B_OUT_L2
+Wire Wire Line
+	9750 1000 9800 1000
+Wire Wire Line
+	9750 1100 9800 1100
+Wire Wire Line
+	9750 1200 9800 1200
+Wire Wire Line
+	9750 1300 9800 1300
+Wire Wire Line
+	9750 1400 9800 1400
+Wire Wire Line
+	9750 1500 9800 1500
+Wire Wire Line
+	9750 1600 9800 1600
+Wire Wire Line
+	9750 1700 9800 1700
+$Comp
+L Device:Q_DUAL_NPN_NPN_BRT_E1B1C2E2B2C1 Q2
+U 2 1 623B7A2A
+P 2000 4200
+F 0 "Q2" H 2141 4246 50  0000 L CNN
+F 1 "MUN5232DW1T1GOSCT" H 2141 4155 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2000 4200 50  0001 C CNN
+F 3 "~" H 2000 4200 50  0001 C CNN
+	2    2000 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_DUAL_NPN_NPN_BRT_E1B1C2E2B2C1 Q2
+U 1 1 62054728
+P 1550 4450
+F 0 "Q2" H 1691 4496 50  0000 L CNN
+F 1 "MUN5232DW1T1GOSCT" H 1691 4405 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 1550 4450 50  0001 C CNN
+F 3 "~" H 1550 4450 50  0001 C CNN
+F 4 "MUN5232DW1T1GOSCT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "MUN5232DW1T1G" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "onsemi" H -450 400 50  0001 C CNN "Manu_Name"
+	1    1550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 J2
+U 1 1 6210E725
+P 10000 1300
+F 0 "J2" H 10080 1292 50  0000 L CNN
+F 1 "Conn_01x08" H 10080 1201 50  0001 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 10000 1300 50  0001 C CNN
+F 3 "~" H 10000 1300 50  0001 C CNN
+F 4 "MUN5232DW1T1GOSCT-ND" H 6050 750 50  0001 C CNN "Digikey_Number"
+F 5 "MUN5232DW1T1G" H 6050 750 50  0001 C CNN "Manu_Number"
+F 6 "onsemi" H 6050 750 50  0001 C CNN "Manu_Name"
+	1    10000 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_DUAL_NPN_NPN_BRT_E1B1C2E2B2C1 Q1
+U 2 1 623B6882
+P 2000 3050
+F 0 "Q1" H 2141 3096 50  0000 L CNN
+F 1 "MUN5232DW1T1GOSCT" H 2141 3005 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 2000 3050 50  0001 C CNN
+F 3 "~" H 2000 3050 50  0001 C CNN
+F 4 "MUN5232DW1T1GOSCT-ND" H -450 400 50  0001 C CNN "Digikey_Number"
+F 5 "MUN5232DW1T1G" H -450 400 50  0001 C CNN "Manu_Number"
+F 6 "onsemi" H -450 400 50  0001 C CNN "Manu_Name"
+	2    2000 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 621EBE2A
+P 9400 2850
+F 0 "#PWR0101" H 9400 2600 50  0001 C CNN
+F 1 "GND" H 9405 2677 50  0000 C CNN
+F 2 "" H 9400 2850 50  0001 C CNN
+F 3 "" H 9400 2850 50  0001 C CNN
+	1    9400 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9400 2850 9400 2800
+$Comp
+L power:VCC #PWR0102
+U 1 1 621F32A8
+P 9400 2350
+F 0 "#PWR0102" H 9400 2200 50  0001 C CNN
+F 1 "VCC" H 9417 2523 50  0000 C CNN
+F 2 "" H 9400 2350 50  0001 C CNN
+F 3 "" H 9400 2350 50  0001 C CNN
+	1    9400 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9400 2350 9400 2400
+Wire Wire Line
+	900  1300 900  1400
+Connection ~ 900  1400
+Wire Wire Line
+	900  1000 900  950 
+Wire Wire Line
+	900  950  1400 950 
+Connection ~ 1400 950 
+Text Label 6300 1000 2    50   ~ 0
+CLK
+Wire Wire Line
+	6300 1000 6400 1000
+Connection ~ 6400 1000
+$EndSCHEMATC
